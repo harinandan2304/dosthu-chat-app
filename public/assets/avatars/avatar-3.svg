@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="50" fill="url(#bg3)"/>
+  <!-- Head -->
+  <circle cx="50" cy="46" r="24" fill="#ffedd5"/>
+  <!-- Curly Hair -->
+  <path d="M26 38 C23 28 32 18 42 16 C52 14 62 16 68 22 C76 30 75 40 73 45 C70 32 62 25 50 25 C38 25 30 32 26 38 Z" fill="#451a03"/>
+  <!-- Beard / Stubble -->
+  <path d="M35 52 C35 65 42 71 50 71 C58 71 65 65 65 52 C65 57 58 64 50 64 C42 64 35 57 35 52 Z" fill="#78350f" opacity="0.3"/>
+  <!-- Eyes -->
+  <circle cx="43" cy="45" r="3" fill="#451a03"/>
+  <circle cx="57" cy="45" r="3" fill="#451a03"/>
+  <!-- Big Smile -->
+  <path d="M43 54 Q50 62 57 54" fill="none" stroke="#451a03" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Hoodie -->
+  <path d="M20 92 C20 74 33 68 50 68 C67 68 80 74 80 92 Z" fill="#064e3b"/>
+  <path d="M42 68 L50 82 L58 68" fill="none" stroke="#34d399" stroke-width="3"/>
+</svg>

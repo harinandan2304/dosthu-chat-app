@@ -1,0 +1,37 @@
+{
+  "name": "dosthu-chat-app",
+  "version": "1.0.0",
+  "description": "Dosthu - Real-Time Chat Application for Full Stack Web Development (FSWD)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node test_units.js"
+  },
+  "keywords": [
+    "chat",
+    "realtime",
+    "websockets",
+    "socket.io",
+    "fullstack",
+    "fswd",
+    "express",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "FSWD Student",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

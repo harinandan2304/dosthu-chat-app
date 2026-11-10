@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dosthu - Real-Time Chat Application</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
+  
+  <!-- Modern Typography Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+  <!-- Ambient Background Radial Lighting -->
+  <div class="ambient-glow-wrapper">
+    <div class="ambient-glow ambient-glow-1"></div>
+    <div class="ambient-glow ambient-glow-2"></div>
+    <div class="ambient-glow ambient-glow-3"></div>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Main Application Container -->
+  <div id="app-container">
+    <div class="app-layout">
+      
+      <!-- ==========================================================================
+           1. SIDEBAR (User Conversations & Navigation)
+           ========================================================================== -->
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar Brand Header -->
+        <div class="sidebar-header">
+          <a href="/" class="brand-wrapper">
+            <img src="/assets/logo.svg" alt="Dosthu Logo" class="brand-logo-img">
+          </a>
+          <div class="sidebar-actions">
+            <button class="btn-icon" id="theme-toggle-btn" title="Toggle Dark/Light Mode">☀️</button>
+            <button class="btn-icon" id="sound-toggle-btn" title="Toggle Audio Chimes">🔔</button>
+            <button class="btn-icon" id="logout-btn" title="Log Out">🚪</button>
+          </div>
+        </div>
+
+        <!-- Search Input with Keyboard Shortcut Hint -->
+        <div class="search-wrapper">
+          <div class="search-input-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="user-search-input" class="search-input" placeholder="Search friends or messages... (Ctrl+K)">
+          </div>
+        </div>
+
+        <!-- Online Friends Quick Avatars Strip -->
+        <div class="online-strip-wrapper" id="online-strip">
+          <!-- Dynamic Online Users Populated via JS -->
+        </div>
+
+        <!-- Scrollable Conversation Cards List -->
+        <div class="conversation-list-container" id="conversation-list">
+          <!-- Dynamically populated via ChatManager -->
+        </div>
+
+        <!-- Current User Mini Profile Card (Footer) -->
+        <div class="sidebar-footer">
+          <div class="user-mini-profile" id="user-mini-profile" title="Click to edit profile">
+            <img id="current-user-avatar" class="user-mini-avatar" src="/assets/avatars/avatar-1.svg" alt="Profile">
+            <div class="user-mini-details">
+              <div class="user-mini-name" id="current-user-name">Loading...</div>
+              <div class="user-mini-status">
+                <span class="status-dot online"></span>
+                <span>Active</span>
+              </div>
+            </div>
+          </div>
+          <button class="btn-icon" id="edit-profile-btn" title="Edit Profile">✏️</button>
+        </div>
+      </aside>
+
+      <!-- ==========================================================================
+           2. MAIN CHAT AREA
+           ========================================================================== -->
+      <main class="main-chat-area" id="main-chat-area">
+        
+        <!-- Welcome Screen (When no chat is selected) -->
+        <div class="empty-chat-state" id="empty-chat-state">
+          <div class="empty-chat-icon">
+            <img src="/assets/logo-icon.svg" width="54" height="54" alt="Dosthu">
+          </div>
+          <h2 class="empty-chat-title">Welcome to Dosthu</h2>
+          <p class="empty-chat-subtitle">
+            Experience real-time instant messaging with zero latency, live typing indicators, delivery receipts, and crystal clear sync.
+          </p>
+          <div style="margin-top: 14px; display: inline-flex; gap: 10px;">
+            <span class="badge" style="background: rgba(99,102,241,0.2); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); padding: 6px 14px;">
+              ⚡ WebSockets Active
+            </span>
+            <span class="badge" style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.3); padding: 6px 14px;">
+              🔒 Encrypted Auth
+            </span>
+          </div>
+        </div>
+
+        <!-- Active Conversation Content -->
+        <div id="active-chat-content" style="display: none; flex-direction: column; height: 100%; width: 100%;">
+          
+          <!-- Top Chat Header -->
+          <header class="chat-header">
+            <div class="chat-header-user">
+              <button class="mobile-back-btn" id="mobile-back-btn">←</button>
+              <div class="chat-header-avatar-wrap">
+                <img id="chat-header-avatar" class="chat-header-avatar" src="/assets/avatars/avatar-1.svg" alt="Avatar">
+              </div>
+              <div>
+                <div class="chat-header-name" id="chat-header-name">Friend</div>
+                <div class="chat-header-status" id="chat-header-status">
+                  <span class="status-dot online"></span> Online
+                </div>
+              </div>
+            </div>
+            <div class="chat-header-actions">
+              <button class="btn-icon" title="Voice Call (Simulation)" onclick="window.app.showToast('Audio call initiated...', 'info')">📞</button>
+              <button class="btn-icon" title="Video Call (Simulation)" onclick="window.app.showToast('Video call initiated...', 'info')">📹</button>
+              <button class="btn-icon" id="clear-chat-btn" title="Clear Conversation">🗑️</button>
+              <button class="btn-icon" id="toggle-info-btn" title="Toggle User Info">ℹ️</button>
+            </div>
+          </header>
+
+          <!-- Chat Messages Flow Container -->
+          <div class="messages-container" id="messages-container">
+            <!-- Messages rendered dynamically -->
+          </div>
+
+          <!-- Typing Indicator Animation Bubble -->
+          <div class="typing-bubble-container" id="typing-bubble">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span style="font-size: 11.5px; color: var(--text-muted); margin-left: 4px;">typing...</span>
+          </div>
+
+          <!-- Quick Reaction Bar -->
+          <div class="quick-reaction-bar" id="quick-reaction-bar">
+            <span style="font-size: 11px; font-weight: 600; color: var(--text-muted); margin-right: 4px;">React:</span>
+            <button class="quick-reaction-btn" data-reaction="❤️">❤️</button>
+            <button class="quick-reaction-btn" data-reaction="🔥">🔥</button>
+            <button class="quick-reaction-btn" data-reaction="👍">👍</button>
+            <button class="quick-reaction-btn" data-reaction="😂">😂</button>
+            <button class="quick-reaction-btn" data-reaction="🎉">🎉</button>
+            <button class="quick-reaction-btn" data-reaction="🚀">🚀</button>
+          </div>
+
+          <!-- Chat Input Area -->
+          <footer class="chat-input-area">
+            <!-- Emoji Picker Popover -->
+            <div class="emoji-popover" id="emoji-popover">
+              <div class="emoji-popover-header">Select an Emoji</div>
+              <div class="emoji-grid" id="emoji-grid">
+                <!-- Dynamically populated via EmojiManager -->
+              </div>
+            </div>
+
+            <!-- Input Box -->
+            <div class="input-container">
+              <button type="button" class="input-action-btn" id="emoji-toggle-btn" title="Choose Emoji">😊</button>
+              <textarea id="chat-input" class="chat-textarea" rows="1" placeholder="Type a message... (Press Enter to send, Shift+Enter for newline)"></textarea>
+              <button type="button" class="btn-send" id="btn-send-message" title="Send message">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </footer>
+
+        </div>
+      </main>
+
+      <!-- ==========================================================================
+           3. RIGHT USER INFO DRAWER
+           ========================================================================== -->
+      <aside class="info-drawer collapsed" id="info-drawer">
+        <img id="info-drawer-avatar" class="info-drawer-avatar" src="/assets/avatars/avatar-1.svg" alt="User Avatar">
+        <h3 class="info-drawer-name" id="info-drawer-name">Friend Name</h3>
+        <p class="info-drawer-username" id="info-drawer-username">@username</p>
+        <p class="info-drawer-bio" id="info-drawer-bio">Status / Bio text goes here</p>
+
+        <div class="info-drawer-section">
+          <div class="info-section-title">Shared Media & Files</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;">
+            <div style="background: rgba(255,255,255,0.06); height: 60px; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size:18px;">📸</div>
+            <div style="background: rgba(255,255,255,0.06); height: 60px; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size:18px;">📄</div>
+            <div style="background: rgba(255,255,255,0.06); height: 60px; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size:18px;">🎵</div>
+          </div>
+        </div>
+
+        <div class="info-drawer-section">
+          <div class="info-section-title">Actions & Privacy</div>
+          <div class="info-action-row" onclick="window.app.showToast('Notifications muted for this conversation', 'info')">
+            <span>🔕</span> <span>Mute Notifications</span>
+          </div>
+          <div class="info-action-row danger" onclick="window.chatManager.clearActiveChat()">
+            <span>🗑️</span> <span>Clear Chat History</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       4. AUTHENTICATION MODAL (Login & Register)
+       ========================================================================== -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <img src="/assets/logo.svg" alt="Dosthu" style="height: 48px; width: auto; margin-bottom: 8px;">
+        <p style="color: var(--text-secondary); font-size: 14px;">Sign in to start chatting with your friends</p>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="auth-tab-login">Log In</button>
+        <button class="auth-tab-btn" id="auth-tab-register">Create Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label">Username or Email</label>
+          <input type="text" id="login-identifier" class="form-control" placeholder="e.g. harish or ananya" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          Log In to Dosthu
+        </button>
+      </form>
+
+      <!-- Registration Form -->
+      <form id="register-form" style="display: none;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="register-name" class="form-control" placeholder="e.g. Rahul Verma" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" id="register-username" class="form-control" placeholder="e.g. rahul_v" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="register-email" class="form-control" placeholder="rahul@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password (min 6 characters)</label>
+          <input type="password" id="register-password" class="form-control" placeholder="••••••••" required minlength="6">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status / Bio (Optional)</label>
+          <input type="text" id="register-bio" class="form-control" placeholder="e.g. Living in the moment ✨">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+          Create Free Account
+        </button>
+      </form>
+
+      <!-- Quick Demo Login Pills for Instant Testing -->
+      <div class="quick-demo-accounts">
+        <div class="quick-demo-title">⚡ Quick 1-Click Demo Logins</div>
+        <div class="demo-pills-row">
+          <button class="demo-pill" data-username="harish">👤 Harish</button>
+          <button class="demo-pill" data-username="ananya">🎨 Ananya</button>
+          <button class="demo-pill" data-username="karthik">💻 Karthik</button>
+          <button class="demo-pill" data-username="sneha">☕ Sneha</button>
+          <button class="demo-pill" data-username="vikram">🎯 Vikram</button>
+        </div>
+        <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
+          Default password for demo users: <code>dosthu123</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       5. PROFILE MANAGEMENT MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="profile-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Edit Your Profile</h3>
+        <button class="modal-close-btn" id="profile-modal-close">&times;</button>
+      </div>
+
+      <form id="profile-form">
+        <!-- Avatar Selection -->
+        <div class="form-group">
+          <label class="form-label">Choose Avatar</label>
+          <div class="avatar-grid" id="profile-avatar-grid">
+            <div class="avatar-option selected" data-avatar="avatar-1">
+              <img src="/assets/avatars/avatar-1.svg" alt="Avatar 1">
+            </div>
+            <div class="avatar-option" data-avatar="avatar-2">
+              <img src="/assets/avatars/avatar-2.svg" alt="Avatar 2">
+            </div>
+            <div class="avatar-option" data-avatar="avatar-3">
+              <img src="/assets/avatars/avatar-3.svg" alt="Avatar 3">
+            </div>
+            <div class="avatar-option" data-avatar="avatar-4">
+              <img src="/assets/avatars/avatar-4.svg" alt="Avatar 4">
+            </div>
+            <div class="avatar-option" data-avatar="avatar-5">
+              <img src="/assets/avatars/avatar-5.svg" alt="Avatar 5">
+            </div>
+            <div class="avatar-option" data-avatar="avatar-6">
+              <img src="/assets/avatars/avatar-6.svg" alt="Avatar 6">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Display Name</label>
+          <input type="text" id="profile-name-input" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Status Bio</label>
+          <input type="text" id="profile-bio-input" class="form-control" placeholder="What's on your mind?">
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-secondary" onclick="window.profileManager.closeModal()" style="flex: 1;">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="flex: 2;">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Modules -->
+  <script src="/js/audio.js"></script>
+  <script src="/js/emoji.js"></script>
+  <script src="/js/socket.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/profile.js"></script>
+  <script src="/js/chat.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

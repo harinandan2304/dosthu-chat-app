@@ -1,0 +1,215 @@
+{
+  "users": [
+    {
+      "id": "usr_harish",
+      "username": "harish",
+      "name": "Harish Kumar",
+      "email": "harish@dosthu.app",
+      "password": "04c530362799f43d191d0d498c1a20e6:5bb27bc11e838be3fb8b3d243f3cfebd658cadc5eb1e2e57ad8b19f1938e4c27bbe4d7c663c79808e5d19cb72e6b95c4728463857ed9ed66c6858c58686a5213",
+      "avatar": "avatar-1",
+      "bio": "Updated via test suite! 🌟",
+      "status": "online",
+      "lastSeen": 1794287326202,
+      "createdAt": 1793682526202
+    },
+    {
+      "id": "usr_ananya",
+      "username": "ananya",
+      "name": "Ananya Sharma",
+      "email": "ananya@dosthu.app",
+      "password": "04c530362799f43d191d0d498c1a20e6:5bb27bc11e838be3fb8b3d243f3cfebd658cadc5eb1e2e57ad8b19f1938e4c27bbe4d7c663c79808e5d19cb72e6b95c4728463857ed9ed66c6858c58686a5213",
+      "avatar": "avatar-2",
+      "bio": "Designing clean UI/UX & aesthetic vibes ✨",
+      "status": "online",
+      "lastSeen": 1794287206202,
+      "createdAt": 1793855326202
+    },
+    {
+      "id": "usr_karthik",
+      "username": "karthik",
+      "name": "Karthik Raja",
+      "email": "karthik@dosthu.app",
+      "password": "04c530362799f43d191d0d498c1a20e6:5bb27bc11e838be3fb8b3d243f3cfebd658cadc5eb1e2e57ad8b19f1938e4c27bbe4d7c663c79808e5d19cb72e6b95c4728463857ed9ed66c6858c58686a5213",
+      "avatar": "avatar-3",
+      "bio": "Full-stack enthusiast | Building cool stuff 💻",
+      "status": "offline",
+      "lastSeen": 1794280126202,
+      "createdAt": 1793941726202
+    },
+    {
+      "id": "usr_sneha",
+      "username": "sneha",
+      "name": "Sneha Patel",
+      "email": "sneha@dosthu.app",
+      "password": "04c530362799f43d191d0d498c1a20e6:5bb27bc11e838be3fb8b3d243f3cfebd658cadc5eb1e2e57ad8b19f1938e4c27bbe4d7c663c79808e5d19cb72e6b95c4728463857ed9ed66c6858c58686a5213",
+      "avatar": "avatar-4",
+      "bio": "Coffee, Code & Curiosity ☕",
+      "status": "online",
+      "lastSeen": 1794287266202,
+      "createdAt": 1794028126202
+    },
+    {
+      "id": "usr_vikram",
+      "username": "vikram",
+      "name": "Vikram Singh",
+      "email": "vikram@dosthu.app",
+      "password": "04c530362799f43d191d0d498c1a20e6:5bb27bc11e838be3fb8b3d243f3cfebd658cadc5eb1e2e57ad8b19f1938e4c27bbe4d7c663c79808e5d19cb72e6b95c4728463857ed9ed66c6858c58686a5213",
+      "avatar": "avatar-5",
+      "bio": "Always up for a quick tech chat! 🎯",
+      "status": "offline",
+      "lastSeen": 1794269326202,
+      "createdAt": 1794114526202
+    },
+    {
+      "id": "usr_3193ac59b801",
+      "username": "harinandan2304",
+      "name": "Harinandan",
+      "email": "harinandan2304@gmail.com",
+      "password": "8f70b28beafbd681fd432c2952eacf82:f85a56b866f3b308f6a23a6628e0abd5267a73042c73c98242c28300b4bc42cafff0f5209efa560997a0969146ec1eb70982bad29c8a6d35df7756e1555936df",
+      "avatar": "avatar-1",
+      "bio": "Student",
+      "status": "online",
+      "lastSeen": 1794289476282,
+      "createdAt": 1794288592490
+    },
+    {
+      "id": "usr_0bec3b59c85a",
+      "username": "rahul1234",
+      "name": "Rahul Rao",
+      "email": "playnowyt2007@gmail.com",
+      "password": "18126713f7c29cda39b30fbe34dbd2aa:c0800f9d4cffd4a0d6afcf746f734f97549280eee35f213417f334c894b598839951af3900188fe92b60ad4dce64c925124da09aa08ce537e9181ee102fdd268",
+      "avatar": "avatar-1",
+      "bio": "Coder",
+      "status": "offline",
+      "lastSeen": 1794289229679,
+      "createdAt": 1794288854876
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg_1",
+      "senderId": "usr_ananya",
+      "receiverId": "usr_harish",
+      "text": "Hey Harish! Have you checked out the new Dosthu UI palette?",
+      "read": true,
+      "readAt": 1794276526202,
+      "createdAt": 1794274726202
+    },
+    {
+      "id": "msg_2",
+      "senderId": "usr_harish",
+      "receiverId": "usr_ananya",
+      "text": "Yes! The indigo and neon accents look super sleek and responsive 🔥",
+      "read": true,
+      "readAt": 1794277246202,
+      "createdAt": 1794276526202
+    },
+    {
+      "id": "msg_3",
+      "senderId": "usr_ananya",
+      "receiverId": "usr_harish",
+      "text": "Awesome! Real-time WebSockets are working seamlessly without any page refresh.",
+      "read": true,
+      "readAt": 1794280126202,
+      "createdAt": 1794278326202
+    },
+    {
+      "id": "msg_4",
+      "senderId": "usr_karthik",
+      "receiverId": "usr_harish",
+      "text": "Bro, the FSWD project submission is looking top notch! 🚀",
+      "read": false,
+      "readAt": null,
+      "createdAt": 1794281926202
+    },
+    {
+      "id": "msg_5",
+      "senderId": "usr_sneha",
+      "receiverId": "usr_harish",
+      "text": "Hey Harish, testing out the instant delivery & read receipts! 👋",
+      "read": true,
+      "readAt": 1794285526202,
+      "createdAt": 1794285466202
+    },
+    {
+      "id": "msg_0cab2b7b4e8dce61",
+      "senderId": "usr_harish",
+      "receiverId": "usr_ananya",
+      "text": "Automated test message for FSWD project verification",
+      "type": "text",
+      "read": true,
+      "readAt": 1794287362349,
+      "createdAt": 1794287362320
+    },
+    {
+      "id": "msg_6986b2c51051ec7a",
+      "senderId": "usr_harish",
+      "receiverId": "usr_ananya",
+      "text": "Automated test message for FSWD project verification",
+      "type": "text",
+      "read": true,
+      "readAt": 1794287469955,
+      "createdAt": 1794287469926
+    },
+    {
+      "id": "msg_e434cb217c972497",
+      "senderId": "usr_3193ac59b801",
+      "receiverId": "usr_vikram",
+      "text": "hi",
+      "type": "text",
+      "read": false,
+      "readAt": null,
+      "createdAt": 1794288638428
+    },
+    {
+      "id": "msg_a3c38b3dc3646556",
+      "senderId": "usr_3193ac59b801",
+      "receiverId": "usr_harish",
+      "text": "hi",
+      "type": "text",
+      "read": false,
+      "readAt": null,
+      "createdAt": 1794288736822
+    },
+    {
+      "id": "msg_b28ab9b269b74510",
+      "senderId": "usr_3193ac59b801",
+      "receiverId": "usr_harish",
+      "text": "❤️",
+      "type": "emoji",
+      "read": false,
+      "readAt": null,
+      "createdAt": 1794288783807
+    },
+    {
+      "id": "msg_8add99e3410a8365",
+      "senderId": "usr_0bec3b59c85a",
+      "receiverId": "usr_3193ac59b801",
+      "text": "hello",
+      "type": "text",
+      "read": true,
+      "readAt": 1794288918625,
+      "createdAt": 1794288866117
+    },
+    {
+      "id": "msg_9c81640155ae9693",
+      "senderId": "usr_3193ac59b801",
+      "receiverId": "usr_0bec3b59c85a",
+      "text": "hello bauna",
+      "type": "text",
+      "read": true,
+      "readAt": 1794288926677,
+      "createdAt": 1794288926268
+    },
+    {
+      "id": "msg_d307e5c1d741046c",
+      "senderId": "usr_harish",
+      "receiverId": "usr_ananya",
+      "text": "Automated test message for FSWD project verification",
+      "type": "text",
+      "read": true,
+      "readAt": 1794289420191,
+      "createdAt": 1794289420190
+    }
+  ]
+}

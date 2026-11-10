@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="50" fill="url(#bg5)"/>
+  <!-- Head -->
+  <circle cx="50" cy="46" r="23" fill="#fef3c7"/>
+  <!-- Short spikes hair -->
+  <path d="M28 35 L33 22 L40 28 L48 18 L55 26 L64 20 L68 34 C68 28 60 25 50 25 C40 25 32 28 28 35 Z" fill="#78350f"/>
+  <!-- Cool Headphones -->
+  <rect x="23" y="38" width="6" height="16" rx="3" fill="#1e293b"/>
+  <rect x="71" y="38" width="6" height="16" rx="3" fill="#1e293b"/>
+  <path d="M26 38 C26 20 74 20 74 38" fill="none" stroke="#1e293b" stroke-width="4"/>
+  <!-- Eyes -->
+  <circle cx="43" cy="46" r="3" fill="#78350f"/>
+  <circle cx="57" cy="46" r="3" fill="#78350f"/>
+  <!-- Grin -->
+  <path d="M43 54 Q50 62 57 54" fill="none" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Shirt -->
+  <path d="M22 92 C22 74 34 68 50 68 C66 68 78 74 78 92 Z" fill="#1e293b"/>
+</svg>

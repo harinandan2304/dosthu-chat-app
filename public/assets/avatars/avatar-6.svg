@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="50" fill="url(#bg6)"/>
+  <!-- Head -->
+  <circle cx="50" cy="46" r="23" fill="#fed7aa"/>
+  <!-- Curly Afro Hair -->
+  <circle cx="36" cy="30" r="12" fill="#18181b"/>
+  <circle cx="50" cy="24" r="13" fill="#18181b"/>
+  <circle cx="64" cy="30" r="12" fill="#18181b"/>
+  <circle cx="28" cy="42" r="10" fill="#18181b"/>
+  <circle cx="72" cy="42" r="10" fill="#18181b"/>
+  <!-- Eyes -->
+  <circle cx="43" cy="46" r="3" fill="#18181b"/>
+  <circle cx="57" cy="46" r="3" fill="#18181b"/>
+  <!-- Cheerful Smile -->
+  <path d="M43 54 Q50 62 57 54" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Violet Sweater -->
+  <path d="M22 92 C22 74 34 68 50 68 C66 68 78 74 78 92 Z" fill="#ede9fe"/>
+</svg>
